@@ -5,11 +5,10 @@ import numpy as np
 
 print("=====================Five number summary====================")
 
-lis = [19, 23, 29, 31, 37, 41, 43, 47, 5, 7, 11, 13, 17]
+lis = [5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
 lis.sort()
 print('sorted list : ', lis)
 Len = len(lis)
-print(Len/2)
 Q2 = median(lis)
 
 
@@ -25,14 +24,19 @@ else:
 
 
 IQR = Q3 - Q1
-Min = Q1 - (1.5 * IQR)
-Max = Q3 + (1.5 * IQR)
 
-print('Min : ', Min)
+LenRange = 1.5 ####
+
+Min = Q1 - (LenRange * IQR)
+Max = Q3 + (LenRange * IQR)
+
+
 print('Q1 : ', Q1)
 print('Q2 : ', Q2)
 print('Q3 : ', Q3)
-print('Max : ', Max)
+print ("IQR = {0}-{1}={2}".format(Q3,Q1,IQR))
+print('Min : {0}-({1}*{2})={3}'.format(Q1,LenRange,IQR,Min))
+print('Max : {0}+({1}*{2})={3}'.format(Q3,LenRange,IQR,Max))
 
 
 # Creating dataset

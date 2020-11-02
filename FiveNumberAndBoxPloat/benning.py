@@ -63,5 +63,4 @@ print(colored('final array ->  [ '+finalRes+' ]',
               'blue',
               # on_color='on_grey',
               attrs=['bold']))
-print()
-print()
+

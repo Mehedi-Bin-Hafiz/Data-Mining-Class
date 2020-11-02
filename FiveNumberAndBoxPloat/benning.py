@@ -16,7 +16,7 @@ def meanAlgo(a):
     # print('--------------------------', m)
     m = customround(m)
 
-    print(' ME sliced array', a)
+    print(' Mean sliced array', a)
     print('array mean', m)
 
     for i in a:
@@ -24,7 +24,7 @@ def meanAlgo(a):
 
 
 def boundaryAlgo(a):
-    print(' BA sliced array', a, ' -> ',  end=' ')
+    print(' Boundary sliced array', a, ' -> ',  end=' ')
     Min = min(a)
     Max = max(a)
     for i in a:

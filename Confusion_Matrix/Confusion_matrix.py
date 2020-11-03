@@ -1,7 +1,7 @@
-TP = 59
-TN = 12
-FP = 27
-FN = 2
+TP = 40
+TN = 850
+FP = 60
+FN = 50
 
 accuracy = (TP+TN)/(TP+TN+FP+FN)
 print('Accuracy = ({0}+{1})/({0}+{1}+{2}+{3}) = {4:.3f}'.format(TP,TN,FP,FN,accuracy))

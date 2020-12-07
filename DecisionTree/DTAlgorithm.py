@@ -3,13 +3,16 @@ import tabula
 import math
 
 
-
 dataSet = pd.read_excel('examdata.xlsx')
 
 
-################Declare entropy of decision class#############
+print('\n#################Entropy Part#####################\n')
 
+############ look me #############
 dtClass = dataSet.play ##must assign decision class
+############# look me ############
+
+
 
 dtClassCountedValue = dtClass.value_counts(sort=True).tolist()
 maxDtClassElementLen = len(dtClassCountedValue)
@@ -27,6 +30,7 @@ print('= {:.2f}'.format(dtClassEntropy))
 allHeader = list(dataSet.columns.values)
 print('All headers: ', allHeader)
 
+
 ###################Header modification area#########################
 
 allHeader.pop(0)  ### it removes 0 number column
@@ -34,13 +38,13 @@ dependent = allHeader.pop()
 print('Independent attributes: ', allHeader, end='\n')
 
 ###################Header modification area#########################
-########check#######
+
 
 entropyLis = list()
 entropyDict = dict()
 
 for header in allHeader:
-    print("###For {} calculation###".format(header))
+    print("###For {} entropy calculation###".format(header))
     attributeClass = dataSet[header]
     AttriClassCountedValue = attributeClass.value_counts(sort=True).tolist() # need for calculating  specific attribute gain
     # print(AttriClassCountedValue)
@@ -77,32 +81,51 @@ for header in allHeader:
     entropyLis = list()
     print('')
 
-# print(entropyDict['outlook'])
 
 
+############check#############
 
-
-
-# ################ Gain Claculation #################
-#
-#
-# for i in allHeader:
-#     print('{} info gain: '.format(i))
-#     attributeClass = dataSet['{}'.format(i)]
+# entropyEachElements = entropyDict['wind']
+# attributeClass = dataSet['wind']
 #     # print(attributeClass)
-#     AttriClassCountedValue = attributeClass.value_counts(sort = True).tolist()
-#     # print(AttriClassCountedValue)
-#     sumOfCountedValue = sum(AttriClassCountedValue)
-#     attriClassEntropy = 0
+# AttriClassCountedValue = attributeClass.value_counts(sort = True).tolist()
+# sumOfAttriClassCountedValue = sum(AttriClassCountedValue)
+# print(sumOfAttriClassCountedValue)
+# probabilityCountedValue = list()
+# for value in AttriClassCountedValue:
+#     probabilityCountedValue.append(value/sumOfAttriClassCountedValue)
+# sumresult = list()
+# multiResult = 0
+# print('{:.2f}'.format(dtClassEntropy),end='')
+# for proba in range(len(probabilityCountedValue)):
+#     multiResult += -(probabilityCountedValue[proba]*entropyEachElements[proba])
+#     print('-({:.2f}*{:.2f})'.format(probabilityCountedValue[proba],entropyEachElements[proba]),end='')
+# print('={:.2f}'.format(dtClassEntropy+multiResult))
 #
-#     attibuteEntropy = entropyDict['{}'.format(i)]
-#     gain = - dtClassEntropy
-#     print('-{:.2f}'.format(dtClassEntropy),end='')
-#     for j in range(len(AttriClassCountedValue)):
-#         print(AttriClassCountedValue[j], attibuteEntropy[j])
-#         gain += (-(AttriClassCountedValue[j]/sumOfCountedValue) * attibuteEntropy[j])
-#         print(' -{:.2f}*{:.2f}'.format(dtClassEntropy,(AttriClassCountedValue[j]/sumOfCountedValue),attibuteEntropy[j],gain),end='')
-#     print('= {:.2f}'.format(gain))
 #
 
+
+###############check############
+
+
+################ Gain Claculation #################
+print('\n#################Information Gain Part#####################\n')
+for i in allHeader:
+    print('{} info gain: '.format(i))
+    attributeClass = dataSet['{}'.format(i)]
+    entropyEachElements = entropyDict[i]
+    AttriClassCountedValue = attributeClass.value_counts(sort=True).tolist()
+    sumOfAttriClassCountedValue = sum(AttriClassCountedValue)
+    probabilityCountedValue = list()
+    for value in AttriClassCountedValue:
+        probabilityCountedValue.append(value / sumOfAttriClassCountedValue)
+    sumresult = list()
+    multiResult = 0
+    print('{:.2f}'.format(dtClassEntropy), end='')
+    for proba in range(len(probabilityCountedValue)):
+        multiResult += -(probabilityCountedValue[proba] * entropyEachElements[proba])
+        print('-({:.2f}*{:.2f})'.format(probabilityCountedValue[proba], entropyEachElements[proba]), end='')
+    print('={:.2f}'.format(dtClassEntropy + multiResult))
+    probabilityCountedValue = list()
+    AttriClassCountedValue = 0
 

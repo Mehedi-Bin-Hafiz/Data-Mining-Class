@@ -4,23 +4,41 @@ from termcolor import colored
 # lx = [15, 15, 16, 19, 19, 20, 20, 21, 22, 28, 35, 40, 41, 42, 43, 44, 60, 61, 65]
 # ly = [15, 15, 16, 19, 19, 20, 20, 21, 22, 28, 35, 40, 41, 42, 43, 44, 60, 61, 65]
 
-lx = [1, 1.5, 3.0, 5.0, 3.5, 4.5, 3.5]
-ly = [1, 2.0, 4.0, 7.0, 5.0, 5.0, 4.5]
+# lx = [1, 1.5, 3.0, 5.0, 3.5, 4.5, 3.5]
+lx = [1.0,
+      1.5,
+      3.5,
+      5.0,
+      3.5,
+      4.5,
+      3.5,
+      5.5,
+      7.5]
+# ly = [1, 2.0, 4.0, 7.0, 5.0, 5.0, 4.5]
+ly = [1.5,
+      2.0,
+      4.0,
+      7.0,
+      5.0,
+      5.0,
+      4.5,
+      6.5,
+      8.5]
 
 # number of clusters
 k = 2
 
 cx1 = 0
-cxn1 = 1
+cxn1 = 1.5
 
 cy1 = 0
-cyn1 = 1
+cyn1 = 2.0
 
 cx2 = 0
-cxn2 = 5
+cxn2 = 4.5
 
 cy2 = 0
-cyn2 = 7
+cyn2 = 5.0
 
 lx1 = []
 lx2 = []
@@ -63,25 +81,25 @@ while cx1 != cxn1 and cx2 != cxn2 and cy1 != cyn1 and cy2 != cyn2:
             tly1.append(j)
             # print('{}  {} {} {} {} {}'.format(i, c1, c2, c1Distance, c2Distance, 1))
             print('{}{}{}{}{}{}{}    {}'.format(colored(f'{i:4.2f}', 'red'),
-                                            colored(f'{cx1:7.2f}', 'blue'),
-                                            colored(f'{cx2:7.2f}', 'green'),
-                                            colored(f'{cy1:7.2f}', 'blue'),
-                                            colored(f'{cy2:7.2f}', 'green'),
-                                            colored(f'{Distance1:7.2f}', 'cyan'),
-                                            colored(f'{Distance2:7.2f}', 'magenta'),
-                                            colored(1, 'red')))
+                                                colored(f'{cx1:7.2f}', 'blue'),
+                                                colored(f'{cx2:7.2f}', 'green'),
+                                                colored(f'{cy1:7.2f}', 'blue'),
+                                                colored(f'{cy2:7.2f}', 'green'),
+                                                colored(f'{Distance1:7.2f}', 'cyan'),
+                                                colored(f'{Distance2:7.2f}', 'magenta'),
+                                                colored(1, 'red')))
         else:
             tlx2.append(i)
             tly2.append(j)
             # print('{}  {} {} {} {} {}'.format(i, c1, c2, c1Distance, c2Distance, 2))
             print('{}{}{}{}{}{}{}    {}'.format(colored(f'{i:4.2f}', 'red'),
-                                            colored(f'{cx1:7.2f}', 'blue'),
-                                            colored(f'{cx2:7.2f}', 'green'),
-                                            colored(f'{cy1:7.2f}', 'blue'),
-                                            colored(f'{cy2:7.2f}', 'green'),
-                                            colored(f'{Distance1:7.2f}', 'cyan'),
-                                            colored(f'{Distance2:7.2f}', 'magenta'),
-                                            colored(2, 'blue')))
+                                                colored(f'{cx1:7.2f}', 'blue'),
+                                                colored(f'{cx2:7.2f}', 'green'),
+                                                colored(f'{cy1:7.2f}', 'blue'),
+                                                colored(f'{cy2:7.2f}', 'green'),
+                                                colored(f'{Distance1:7.2f}', 'cyan'),
+                                                colored(f'{Distance2:7.2f}', 'magenta'),
+                                                colored(2, 'blue')))
 
     if lx1 != tlx1:
         lx1 = tlx1

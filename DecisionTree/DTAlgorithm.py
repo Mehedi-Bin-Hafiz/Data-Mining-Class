@@ -9,7 +9,7 @@ dataSet = pd.read_excel('examdata.xlsx')
 print('\n#################Entropy Part#####################\n')
 
 ############ look me #############
-dtClass = dataSet.play ##must assign decision class
+dtClass = dataSet.buymobile ##must assign decision class
 ############# look me ############
 
 
@@ -33,7 +33,7 @@ print('All headers: ', allHeader)
 
 ###################Header modification area#########################
 
-allHeader.pop(0)  ### it removes 0 number column
+#allHeader.pop(0)  ### it removes 0 number column
 dependent = allHeader.pop()
 print('Independent attributes: ', allHeader, end='\n')
 

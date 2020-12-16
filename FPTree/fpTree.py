@@ -49,7 +49,7 @@ percent = float(input('Enter percentage:\n'))
 frequencyList =  firstColumn.value_counts(sort=False).tolist()
 maxvalue = max(frequencyList)
 passAble = (percent/100.00) * maxvalue
-thresholdValue = customround(passAble)
+thresholdValue = customround(passAble) #######thresholdValue############
 print('Threshold value: ',thresholdValue,'\n')
 df3 = df2.reset_index()
 df3.columns = ['Elements', 'Frequency']
@@ -69,7 +69,6 @@ for key,value in TidItemDict.items():
     for i in orderedItem:
         if i in value:
             lastDict[key].append(i)
-
 print('\nFinal DataSet: ',lastDict)
 
 

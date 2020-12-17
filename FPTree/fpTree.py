@@ -47,8 +47,10 @@ print('\n##########Step 3###########')
 print('Enter support value if available, otherwise enter 0')
 percent = float(input('Enter percentage:\n'))
 frequencyList =  firstColumn.value_counts(sort=False).tolist()
+
 maxvalue = max(frequencyList)
-passAble = (percent/100.00) * maxvalue
+passAble = (percent/100.00) * len(dataSet)
+
 thresholdValue = customround(passAble) #######thresholdValue############
 print('Threshold value: ',thresholdValue,'\n')
 df3 = df2.reset_index()
